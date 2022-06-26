@@ -22,8 +22,8 @@ public class Controller {
 
         }
 
-
-        //goToTheStartPosition(room, movingEntity);
+        //movingEntity.moveToTheStart(room);
+        goToTheStartPosition(room, movingEntity);
 
     }
 
@@ -41,7 +41,7 @@ public class Controller {
 
         while (!movingEntity.getCoordinates().isSame(c2)) {
 
-            movingEntity.setDirection(room.getShortestPath(movingEntity.getDirection(), movingEntity.getCoordinates(), c2));
+            //movingEntity.setDirection(room.getShortestPath(movingEntity.getDirection(), movingEntity.getCoordinates(), c2));
             movingEntity.moveToTheStart(room);
             room.draw();
             System.out.println("-------" + ctr + "c-----");

@@ -73,50 +73,76 @@ public class MovingEntity {
         setMark("M");
 
         Coordinates newCoordinates = new Coordinates(getCoordinates());// new Coordinate object
-
+        /*
         switch (getDirection()) {
             case UP:
-                if (room.isMark(new Coordinates(getCoordinates().getRow() - 1, getCoordinates().getColumn()),".")
-                        || room.isMark(new Coordinates(getCoordinates().getRow() - 1, getCoordinates().getColumn())," ")){
+                if (room.isMark(new Coordinates(getCoordinates().getRow() - 1, getCoordinates().getColumn()), ".")
+                        || room.isMark(new Coordinates(getCoordinates().getRow() - 1, getCoordinates().getColumn()), " ")) {
                     newCoordinates.setRow(getCoordinates().getRow() - 1); //set newCoordinates
-                    room.setCleaned3(new Coordinates(getCoordinates().getRow() , getCoordinates().getColumn()), "o");
+                    room.setCleaned3(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn()), "o");
                 }
                 break;
             case DOWN:
-                if (room.isMark(new Coordinates(getCoordinates().getRow() + 1, getCoordinates().getColumn()),".")
-                        ||room.isMark(new Coordinates(getCoordinates().getRow() + 1, getCoordinates().getColumn())," ")){
+                if (room.isMark(new Coordinates(getCoordinates().getRow() + 1, getCoordinates().getColumn()), ".")
+                        || room.isMark(new Coordinates(getCoordinates().getRow() + 1, getCoordinates().getColumn()), " ")) {
                     newCoordinates.setRow(getCoordinates().getRow() + 1); //set newCoordinates
-                    room.setCleaned3(new Coordinates(getCoordinates().getRow() , getCoordinates().getColumn()), "o");
+                    room.setCleaned3(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn()), "o");
                 }
                 break;
             case LEFT:
-                if (room.isMark(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn() - 1),".")
-                        || room.isMark(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn() - 1)," ")){
+                if (room.isMark(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn() - 1), ".")
+                        || room.isMark(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn() - 1), " ")) {
                     newCoordinates.setColumn(getCoordinates().getColumn() - 1);
-                    room.setCleaned3(new Coordinates(getCoordinates().getRow() , getCoordinates().getColumn()), "o");
+                    room.setCleaned3(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn()), "o");
                 }
                 break;
             case RIGHT:
-                if (room.isMark(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn() + 1),".")
-                        || room.isMark(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn() + 1)," ")){
+                if (room.isMark(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn() + 1), ".")
+                        || room.isMark(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn() + 1), " ")) {
                     newCoordinates.setColumn(getCoordinates().getColumn() + 1);
-                    room.setCleaned3(new Coordinates(getCoordinates().getRow() , getCoordinates().getColumn()), "o");
+                    room.setCleaned3(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn()), "o");
                 }
                 break;
         }
         setCoordinates(newCoordinates);
         Thread.sleep(30);
+        */
+        /////////////////////////////
+        //Coordinates newCoordinates = new Coordinates(getCoordinates());// new Coordinate object
+        if (room.isMark(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn() + 1), " ")) {
+            //|| room.isMark(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn()+1)," ")){
+            newCoordinates.setColumn(getCoordinates().getColumn() + 1);
+            setCoordinates(newCoordinates);//setCoordinates(newCoordinates);
+            room.setCleaned3(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn()), "*");
+        } else if (room.isMark(new Coordinates(getCoordinates().getRow() - 1, getCoordinates().getColumn()), " ")) {
+            //System.out.println("RIGHT2");
+            //||room.isMark(new Coordinates(getCoordinates().getRow() - 1, getCoordinates().getColumn())," ")){
+            newCoordinates.setRow(getCoordinates().getRow() - 1);
+            setCoordinates(newCoordinates);
+            room.setCleaned3(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn()), "*");
+        } else if (room.isMark(new Coordinates(getCoordinates().getRow() + 1, getCoordinates().getColumn()), " ")) {
+            //System.out.println("RIGHT3");
+            //|| room.isMark(new Coordinates(getCoordinates().getRow()+1, getCoordinates().getColumn())," ")){
+            newCoordinates.setRow(getCoordinates().getRow() + 1);
+            setCoordinates(newCoordinates);
+            room.setCleaned3(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn()), "*");
+        } else if (room.isMark(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn() - 1), " ")) {
+            //System.out.println("RIGHT4");
+            //|| room.isMark(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn()-1)," ")){
+            newCoordinates.setColumn(getCoordinates().getColumn() - 1);
+            setCoordinates(newCoordinates);
+            room.setCleaned3(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn()), "*");
 
-
+        }
+        Thread.sleep(30);
     }
-
     public void runMaze(Room room) throws InterruptedException {
         System.out.println(getCoordinates().getRow());
         System.out.println(getCoordinates().getColumn());
         //boolean way = true;
         setMark("@");
-        Coordinates endCoordinates = new Coordinates(14, 14);
-        System.out.println("true or false? "+ !getCoordinates().isSame(endCoordinates));
+        //Coordinates endCoordinates = new Coordinates(14, 14); //?
+        //System.out.println("true or false? "+ !getCoordinates().isSame(endCoordinates));
         System.out.println("Mark? "+ getMark());
         //Coordinates newCoordinates = new Coordinates(getCoordinates());// new Coordinate object
         //while (!(getCoordinates().isSame(endCoordinates))) {
