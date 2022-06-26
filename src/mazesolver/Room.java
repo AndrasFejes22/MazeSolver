@@ -23,6 +23,7 @@ public class Room {
      * @param width
      *
      */
+    //for manually created rooms (not from text file)
     public Room(int height, int width, MovingEntity movingEntity, int numberOfHorizontalWalls, int numberOfVerticalWalls) {
         super();
         //this.RANDOM = random;

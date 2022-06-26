@@ -53,7 +53,7 @@ public class Main {
 
         Room room = new Room(21, 21, myArray, movingEntity);
 
-        Controller.cleaning(room, movingEntity);
+        Controller.moving(room, movingEntity);
 
 
     }

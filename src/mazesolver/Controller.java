@@ -11,10 +11,10 @@ public class Controller {
     private static Room room;
     private static MovingEntity vc;
 
-    public static void cleaning(Room room, MovingEntity movingEntity) throws InterruptedException {
+    public static void moving(Room room, MovingEntity movingEntity) throws InterruptedException {
 
 
-        while (!(movingEntity.getCoordinates().isSame(new Coordinates(19,19)))) { //MAZE_Runner //ellenőrzés a koordináta nem e "X"
+        while (!(movingEntity.getCoordinates().isSame(new Coordinates(19,19)))) {
 
             movingEntity.runMaze(room);
             Thread.sleep(30);
