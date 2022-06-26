@@ -23,29 +23,20 @@ public class Controller {
         }
 
 
-        GoToTheStartPosition(room, movingEntity);
+        goToTheStartPosition(room, movingEntity);
 
     }
 
 
 
 
-    private static void GoToTheStartPosition(Room room, MovingEntity movingEntity) throws InterruptedException {
+    private static void goToTheStartPosition(Room room, MovingEntity movingEntity) throws InterruptedException {
 
         Coordinates c2 = new Coordinates();
         int ctr = 0;
 
         c2.setRow(1);
         c2.setColumn(1);
-
-        for (int i = 2; i < width-1; i++) {
-            if (room.isMark(c2, "X")) {
-                c2.setColumn(i);
-                //break;
-            }
-        }
-
-
 
 
         while (!movingEntity.getCoordinates().isSame(c2)) {
