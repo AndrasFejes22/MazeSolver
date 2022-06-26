@@ -23,7 +23,7 @@ public class Controller {
         }
 
 
-        goToTheStartPosition(room, movingEntity);
+        //goToTheStartPosition(room, movingEntity);
 
     }
 
