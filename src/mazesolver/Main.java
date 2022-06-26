@@ -28,11 +28,7 @@ public class Main {
         String[][] myArray = new String[rows][columns];
         try {
             System.out.println("FIRST draw a room from a text: ");
-            //File myObj = new File("C:/Users/Andris/eclipse-workspaceJAVA/CleanerSimulation_OOP/src/cleaner/emptyRoom.txt");
-            //File myObj = new File("C:/Users/Andris/eclipse-workspaceJAVA/CleanerSimulation_OOP/src/cleaner/rooms");
-            //File myObj = new File("C:/Users/Andris/eclipse-workspaceJAVA/CleanerSimulation_OOP/src/cleaner/rooms2.txt");
-            //File myObj = new File("C:/Users/Andris/eclipse-workspaceJAVA/CleanerSimulation_OOP/src/cleaner/maze.txt");
-            File myObj = new File("C:/Users/Andris/IdeaProjects/MazeSolver/src/mazes/maze.txt");
+            File myObj = new File("C:/Users/Andris/IdeaProjects/MazeSolver/src/mazes/maze2.txt");
             System.out.println("myObj.length(): " + myObj.length());
             Scanner myReader = new Scanner(myObj);
 

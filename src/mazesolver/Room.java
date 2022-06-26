@@ -14,7 +14,7 @@ public class Room {
     private int numberOfHorizontalWalls;
     private int numberOfVerticalWalls;
 
-    private MovingEntity cleaner;
+    private MovingEntity movingEntity;
 
     static Random RANDOM = new Random();
 
@@ -23,12 +23,12 @@ public class Room {
      * @param width
      *
      */
-    public Room(int height, int width, MovingEntity cleaner, int numberOfHorizontalWalls, int numberOfVerticalWalls) {
+    public Room(int height, int width, MovingEntity movingEntity, int numberOfHorizontalWalls, int numberOfVerticalWalls) {
         super();
         //this.RANDOM = random;
         this.height = height;
         this.width = width;
-        this.cleaner = cleaner;
+        this.movingEntity = movingEntity;
         this.room = new String[height][width];
         int lastRowIndex = height - 1;
         int lastColumnIndex = width - 1;
@@ -50,7 +50,7 @@ public class Room {
         this.height = height;
         this.width = width;
         //RANDOM = random;
-        this.cleaner = cleaner;
+        this.movingEntity = cleaner;
         this.room =  new String[height][width];
 
         for (int row = 0; row < height; row++) {//initLevel();
@@ -90,7 +90,7 @@ public class Room {
         this.height = height;
         this.width = width;
         RANDOM = random;
-        this.cleaner = cleaner;
+        this.movingEntity = cleaner;
         this.room =  new String[height][width];
 
         for (int row = 0; row < height; row++) {//initLevel();
@@ -123,8 +123,8 @@ public class Room {
             for (int column = 0; column < width; column++) {//room[i].length
 
                 Coordinates coordinatesToDraw = new Coordinates(row, column);
-                if (coordinatesToDraw.isSame(cleaner.getCoordinates())) {
-                    System.out.print(cleaner.getMark());
+                if (coordinatesToDraw.isSame(movingEntity.getCoordinates())) {
+                    System.out.print(movingEntity.getMark());
                 }else{
                     System.out.print(getCell(coordinatesToDraw));
                 }

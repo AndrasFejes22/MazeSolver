@@ -13,14 +13,13 @@ public class Controller {
 
     public static void cleaning(Room room, MovingEntity movingEntity) throws InterruptedException {
 
-        //while (room.checkRoom(".")) { //vacumm cleaner
+
         while (!(movingEntity.getCoordinates().isSame(new Coordinates(19,19)))) { //MAZE_Runner //ellenőrzés a koordináta nem e "X"
 
-            //movingEntity.cleaningARoom(room);
             movingEntity.runMaze(room);
             Thread.sleep(30);
             room.draw();
-            //}
+
         }
 
 
