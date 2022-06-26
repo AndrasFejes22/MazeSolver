@@ -17,11 +17,6 @@ public class Main {
 
         //Room room = new Room(15, 15, vc, 3, 3); //komment
 
-        HashMap<Coordinates, Integer> sm = new HashMap<Coordinates, Integer>();
-
-        //sm.put(VcCoordinates, 2);
-        //sm.put(VcCoordinates2, 4);
-        //sm.put(VcCoordinates3, 7);
 
 
         ////////////MAIN CONTROLL////////////
@@ -62,28 +57,7 @@ public class Main {
         Room room = new Room(21, 21, myArray, vc);
 
         Controller.cleaning(room, vc);
-        ///file-ból-vége////
-        /*
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        List<Map.Entry<Coordinates, Integer>> singleList = sm.entrySet().stream().sorted(Map.Entry.comparingByValue()).collect(Collectors.toList());
-        //comparingByValue(): termésszetes sorrend
-        singleList.get(0);
 
-        //.forEach(System.out::println);
-
-        System.out.println("sm_ "+sm);
-
-        Collection<Integer> values = sm.values();
-        List<Integer> val = new ArrayList<Integer>(values);
-        System.out.println("values: "+val);
-
-        //Stream<Entry<Coordinates, Integer>> values2 = ((HashMap<Coordinates, Integer>) sm.keySet()).entrySet().stream().sorted(Map.Entry.comparingByValue());
-
-        List<Coordinates> val2 = new ArrayList<Coordinates>();
-        System.out.println("legkisebb key_row: "+singleList.get(0).getKey().getRow());
-        System.out.println("legkisebb key_column: "+singleList.get(0).getKey().getColumn());
-        System.out.println("legkisebb value: "+singleList.get(0).getValue());
-        */
 
     }
 
