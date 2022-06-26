@@ -51,7 +51,7 @@ public class Controller {
         while (!movingEntity.getCoordinates().isSame(c2)) {
 
             movingEntity.setDirection(room.getShortestPath(movingEntity.getDirection(), movingEntity.getCoordinates(), c2));
-            movingEntity.moveToTheNextDirt(room);
+            movingEntity.moveToTheStart(room);
             room.draw();
             System.out.println("-------" + ctr + "c-----");
 
