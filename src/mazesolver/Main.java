@@ -2,25 +2,26 @@ package mazesolver;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.HashMap;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        Coordinates VcCoordinates = new Coordinates(1, 1);
+
+
+        Coordinates FirstCoordinates = new Coordinates(1, 1);
         Coordinates VcCoordinates2 = new Coordinates(12, 4);
         Coordinates VcCoordinates3 = new Coordinates(3, 5);
 
-        VacuumCleaner vc = new VacuumCleaner("@ ", VcCoordinates, Direction.UP);
+        MovingEntity movingEntity = new MovingEntity("@ ", FirstCoordinates, Direction.UP);
 
 
-        //Room room = new Room(15, 15, vc, 3, 3); //komment
+        //Room room = new Room(15, 15, movingEntity, 3, 3); //komment
 
 
 
         ////////////MAIN CONTROLL////////////
-        //VacuumCleanerController.cleaning(room, vc);//komment
+        //VacuumCleanerController.cleaning(room, movingEntity);//komment
         ///file-ból////
         int rows = 21; //it is better to scan how many rows and columns there are
         int columns = 21;
@@ -54,9 +55,9 @@ public class Main {
             e.printStackTrace();
         }
 
-        Room room = new Room(21, 21, myArray, vc);
+        Room room = new Room(21, 21, myArray, movingEntity);
 
-        Controller.cleaning(room, vc);
+        Controller.cleaning(room, movingEntity);
 
 
     }

@@ -14,7 +14,7 @@ public class Room {
     private int numberOfHorizontalWalls;
     private int numberOfVerticalWalls;
 
-    private VacuumCleaner cleaner;
+    private MovingEntity cleaner;
 
     static Random RANDOM = new Random();
 
@@ -23,7 +23,7 @@ public class Room {
      * @param width
      *
      */
-    public Room(int height, int width, VacuumCleaner cleaner, int numberOfHorizontalWalls, int numberOfVerticalWalls) {
+    public Room(int height, int width, MovingEntity cleaner, int numberOfHorizontalWalls, int numberOfVerticalWalls) {
         super();
         //this.RANDOM = random;
         this.height = height;
@@ -46,7 +46,7 @@ public class Room {
 
     }
 
-    public Room(int height, int width, String[][] arr, VacuumCleaner cleaner){
+    public Room(int height, int width, String[][] arr, MovingEntity cleaner){
         this.height = height;
         this.width = width;
         //RANDOM = random;
@@ -86,7 +86,7 @@ public class Room {
     }
 
 
-    public Room(int height, int width, String[][] arr, Random random, VacuumCleaner cleaner){
+    public Room(int height, int width, String[][] arr, Random random, MovingEntity cleaner){
         this.height = height;
         this.width = width;
         RANDOM = random;

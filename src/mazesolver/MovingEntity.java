@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.stream.Collectors;
 
-public class VacuumCleaner {
+public class MovingEntity {
     private String mark;
 
     private Coordinates coordinates;
@@ -31,7 +31,7 @@ public class VacuumCleaner {
 
 
      */
-    public VacuumCleaner(String mark, Coordinates coordinates, Direction direction) {
+    public MovingEntity(String mark, Coordinates coordinates, Direction direction) {
         super();
         this.mark = mark;
         this.coordinates = coordinates;

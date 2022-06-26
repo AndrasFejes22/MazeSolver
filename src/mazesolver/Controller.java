@@ -9,15 +9,15 @@ public class Controller {
     static int height = 15;
     static int width = 15;
     private static Room room;
-    private static VacuumCleaner vc;
+    private static MovingEntity vc;
 
-    public static void cleaning(Room room, VacuumCleaner vc) throws InterruptedException {
+    public static void cleaning(Room room, MovingEntity movingEntity) throws InterruptedException {
 
         //while (room.checkRoom(".")) { //vacumm cleaner
-        while (!(vc.getCoordinates().isSame(new Coordinates(19,19)))) { //MAZE_Runner //ellenőrzés a koordináta nem e "X"
+        while (!(movingEntity.getCoordinates().isSame(new Coordinates(19,19)))) { //MAZE_Runner //ellenőrzés a koordináta nem e "X"
 
-            //vc.cleaningARoom(room);
-            vc.runMaze(room);
+            //movingEntity.cleaningARoom(room);
+            movingEntity.runMaze(room);
             Thread.sleep(30);
             room.draw();
             //}
@@ -34,13 +34,13 @@ public class Controller {
 					c.setRow(row);
 					c.setColumn(column);
 
-					while (!vc.getCoordinates().isSame(c)) {// && room.checkRoom(".")) {
+					while (!movingEntity.getCoordinates().isSame(c)) {// && room.checkRoom(".")) {
 
 						loopCounter++;
 
-						vc.setDirection(room.getShortestPath(vc.getDirection(), vc.getCoordinates(), c));
+						movingEntity.setDirection(room.getShortestPath(movingEntity.getDirection(), movingEntity.getCoordinates(), c));
 
-						vc.cleaningARoom(room);
+						movingEntity.cleaningARoom(room);
 
 						room.draw();
 						System.out.println("-------" + loopCounter + "b-----");
@@ -55,8 +55,8 @@ public class Controller {
 		*/
         //}//while outer
 
-        cleanerGoHome(room, vc);
-        //stepCounter2(room, vc);
+        cleanerGoHome(room, movingEntity);
+        //stepCounter2(room, movingEntity);
     }
 
 
@@ -103,7 +103,7 @@ public class Controller {
 	}
 	*/
 
-    private static void cleanerGoHome(Room room, VacuumCleaner vc) throws InterruptedException {
+    private static void cleanerGoHome(Room room, MovingEntity vc) throws InterruptedException {
         //HashMap<Coordinates, Integer> sm = new HashMap<Coordinates, Integer>();
         Coordinates c2 = new Coordinates();
         int ctr = 0;
