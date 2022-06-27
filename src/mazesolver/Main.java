@@ -53,7 +53,9 @@ public class Main {
 
         Room room = new Room(21, 21, myArray, movingEntity);
 
-        Controller.moving(room, movingEntity);
+        //Controller.moving(room, movingEntity);
+
+        Room.MazeGenerator(21,21);
 
 
     }

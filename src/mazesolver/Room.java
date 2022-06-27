@@ -65,6 +65,29 @@ public class Room {
 
 
 
+    public static String[][] MazeGenerator(int height, int width){//must be a constructor
+        int lastRowIndex = height - 1;
+        int lastColumnIndex = width - 1;
+        String[][] arr = new String[height][width];
+        for (int row = 0; row < height; row++) {//initLevel();
+            for (int column = 0; column < width; column++) {
+
+                if(row == 0 ||  row == lastRowIndex || column == 0 || column == lastColumnIndex) {//walls
+                    arr[row][column] = "X"; //walls
+                }else{
+                    arr[row][column] = "X"; //other
+                }
+            }
+        }
+        draw2DArray(height,width, arr);
+
+
+        return arr;
+    }
+
+
+
+
     public int getHeight() {
         return height;
     }
@@ -87,11 +110,11 @@ public class Room {
     }
 
 
-    public Room(int height, int width, String[][] arr, Random random, MovingEntity cleaner){
+    public Room(int height, int width, String[][] arr, Random random, MovingEntity movingEntity){
         this.height = height;
         this.width = width;
         RANDOM = random;
-        this.movingEntity = cleaner;
+        this.movingEntity = movingEntity;
         this.room =  new String[height][width];
 
         for (int row = 0; row < height; row++) {//initLevel();
@@ -161,6 +184,17 @@ public class Room {
         for (int row = 0; row < height; row++) {
             for (int column = 0; column < width; column++) {
                 System.out.print(room[row][column] );
+            }
+            System.out.println();
+        }
+
+    }
+
+    public static void draw2DArray(int height, int width, String[][] arr){
+
+        for (int row = 0; row < height; row++) {
+            for (int column = 0; column < width; column++) {
+                System.out.print(arr[row][column] );
             }
             System.out.println();
         }
