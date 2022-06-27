@@ -129,64 +129,54 @@ public class MovingEntity {
         }
         Thread.sleep(30);
     }
+
     public void runMaze(Room room) throws InterruptedException {
-        room.setCleaned(new Coordinates(1,1));
+        room.setCleaned(new Coordinates(1, 1));
         System.out.println(getCoordinates().getRow());
         System.out.println(getCoordinates().getColumn());
 
         setMark("@");
 
-        System.out.println("Mark? "+ getMark());
+        System.out.println("Mark? " + getMark());
 
         Coordinates newCoordinates = new Coordinates(getCoordinates());// new Coordinate object
-        if (room.isMark(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn()+1),".")){
+        if (room.isMark(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn() + 1), ".")) {
             newCoordinates.setColumn(getCoordinates().getColumn() + 1);
             setCoordinates(newCoordinates);
-            room.setCleaned(new Coordinates(getCoordinates().getRow() , getCoordinates().getColumn()));
-        }else
-
-        if (room.isMark(new Coordinates(getCoordinates().getRow() - 1, getCoordinates().getColumn()),".")){
+            room.setCleaned(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn()));
+        } else if (room.isMark(new Coordinates(getCoordinates().getRow() - 1, getCoordinates().getColumn()), ".")) {
             newCoordinates.setRow(getCoordinates().getRow() - 1);
             setCoordinates(newCoordinates);
-            room.setCleaned(new Coordinates(getCoordinates().getRow() , getCoordinates().getColumn()));
-        }else
-
-
-        if (room.isMark(new Coordinates(getCoordinates().getRow()+1, getCoordinates().getColumn()),".")){
-            newCoordinates.setRow(getCoordinates().getRow()+1);
+            room.setCleaned(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn()));
+        } else if (room.isMark(new Coordinates(getCoordinates().getRow() + 1, getCoordinates().getColumn()), ".")) {
+            newCoordinates.setRow(getCoordinates().getRow() + 1);
             setCoordinates(newCoordinates);
             room.setCleaned(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn()));
-        }else
-
-
-        if (room.isMark(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn()-1),".")){
-            newCoordinates.setColumn(getCoordinates().getColumn()-1);
+        } else if (room.isMark(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn() - 1), ".")) {
+            newCoordinates.setColumn(getCoordinates().getColumn() - 1);
             setCoordinates(newCoordinates);
             room.setCleaned(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn()));
-        }else {
-            if(room.isMark(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn()-1)," ") ) {
+        } else {
+            if (room.isMark(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn() - 1), " ")) {
                 newCoordinates.setColumn(getCoordinates().getColumn() - 1);
                 setCoordinates(newCoordinates);
 
-                room.setCleaned2(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn()+1), "-");
-            } else
-            if(room.isMark(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn()+1)," ")) {
+                room.setCleaned2(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn() + 1), "-");
+            } else if (room.isMark(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn() + 1), " ")) {
                 newCoordinates.setColumn(getCoordinates().getColumn() + 1);
                 setCoordinates(newCoordinates);
 
-                room.setCleaned2(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn()-1), "-");
-            } else
-            if(room.isMark(new Coordinates(getCoordinates().getRow() + 1, getCoordinates().getColumn())," ")) {
-                newCoordinates.setRow(getCoordinates().getRow()+ 1);
+                room.setCleaned2(new Coordinates(getCoordinates().getRow(), getCoordinates().getColumn() - 1), "-");
+            } else if (room.isMark(new Coordinates(getCoordinates().getRow() + 1, getCoordinates().getColumn()), " ")) {
+                newCoordinates.setRow(getCoordinates().getRow() + 1);
                 setCoordinates(newCoordinates);
 
-                room.setCleaned2(new Coordinates(getCoordinates().getRow()-1, getCoordinates().getColumn()), "-");
-            } else
-            if(room.isMark(new Coordinates(getCoordinates().getRow() -1 , getCoordinates().getColumn())," ")) {
+                room.setCleaned2(new Coordinates(getCoordinates().getRow() - 1, getCoordinates().getColumn()), "-");
+            } else if (room.isMark(new Coordinates(getCoordinates().getRow() - 1, getCoordinates().getColumn()), " ")) {
                 newCoordinates.setRow(getCoordinates().getRow() - 1);
                 setCoordinates(newCoordinates);
 
-                room.setCleaned2(new Coordinates(getCoordinates().getRow()+1, getCoordinates().getColumn()), "-");
+                room.setCleaned2(new Coordinates(getCoordinates().getRow() + 1, getCoordinates().getColumn()), "-");
             }
 
         }
