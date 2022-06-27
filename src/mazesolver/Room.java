@@ -47,11 +47,11 @@ public class Room {
 
     }
 
-    public Room(int height, int width, String[][] arr, MovingEntity cleaner){
+    public Room(int height, int width, String[][] arr, MovingEntity movingEntity){
         this.height = height;
         this.width = width;
         //RANDOM = random;
-        this.movingEntity = cleaner;
+        this.movingEntity = movingEntity;
         this.room =  new String[height][width];
 
         for (int row = 0; row < height; row++) {//initLevel();
@@ -104,7 +104,7 @@ public class Room {
     }
 
     public void addRandomWalls(int numberOfHorizontalWalls, int numberOfVerticalWalls) {
-        //TODO fal ne kerüljön a játékosokra
+
         for(int i = 0; i < numberOfHorizontalWalls; i++) {
             addHorizontalWall();
         }
@@ -205,14 +205,12 @@ public class Room {
         //return room[coordinates.getRow()][coordinates.getColumn()] = text ;
     }
 
-
-
     public String setCleaned3(Coordinates coordinates, String text) {
 
         return room[coordinates.getRow()][coordinates.getColumn()] = "\u001b[1;32m" + text + "\u001b[0m";//green
     }
 
-    //2D array lemásolása
+    // copy 2D array
     private String[][] copy(String[][] level){
         String[][] copy = new String[height][width];
         for (int row = 0; row < height; row++) {
